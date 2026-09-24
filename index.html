@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MicroFitness: Small Daily Moves That Add Up</title>
+  <meta name="description" content="MicroFitness: small daily moves that add up. Education, not medical advice." />
+  <link rel="canonical" href="https://microfitnessbook.com/" />
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --navy-mid: #16355c;
+      --cream: #f4f1ea;
+      --ink: #1a1a1a;
+      --muted: #5a6570;
+      --accent: #c9a227;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 28rem;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+    header {
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: #fff;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 24px rgba(11, 31, 58, 0.25);
+    }
+    .brand {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      margin-top: 0.35rem;
+      font-size: 1rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+    .promise {
+      margin: 1.25rem 0 1.5rem;
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: var(--navy);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.9rem 1rem;
+      border-radius: 0.75rem;
+      border: none;
+      font-size: 1rem;
+    }
+    .cta:hover { background: var(--navy-mid); }
+    .note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    .social {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .social a { color: var(--navy); font-weight: 600; }
+    footer {
+      margin-top: 2.5rem;
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="brand">MicroFitness</div>
+      <p class="subtitle">Small Daily Moves That Add Up</p>
+    </header>
+
+    <p class="promise">Tiny habits. Real compounding. No gym heroics required.</p>
+
+    <!-- Soft CTA: swap href to Amazon when the book is live -->
+    <a class="cta" href="#waitlist" id="waitlist">
+      Get notified when the book is live
+    </a>
+    <p class="note">Education, not medical advice. Soft launch. Book / Amazon link coming soon.</p>
+
+    <div class="social">
+      <a href="https://www.tiktok.com/@microfitnessbook" rel="noopener">TikTok</a>
+      <a href="https://www.youtube.com/@microfitnessbook" rel="noopener">YouTube</a>
+    </div>
+
+    <footer>
+      © <span id="y"></span> MicroFitness · microfitnessbook.com
+    </footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
