@@ -56,9 +56,23 @@
       font-size: 0.9rem;
       color: var(--muted);
     }
+    .categories {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+    .category h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid var(--accent);
+    }
     .tools {
       list-style: none;
-      margin-top: 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.65rem;
@@ -109,12 +123,23 @@
     <p class="intro">A tools hub for readers of the book. Optional helpers if you want a scale or a food log — nothing here is required.</p>
     <p class="note">Education, not medical advice.</p>
 
-    <ul class="tools">
-      <li><a href="https://amzn.to/4yyXDb7" target="_blank" rel="noopener noreferrer">Renpho Smart Scale</a></li>
-      <li><a href="https://www.loseit.com/" target="_blank" rel="noopener noreferrer">Lose It</a></li>
-      <li><a href="https://cronometer.com/" target="_blank" rel="noopener noreferrer">Cronometer</a></li>
-      <li><a href="https://www.myfitnesspal.com/" target="_blank" rel="noopener noreferrer">MyFitnessPal</a></li>
-    </ul>
+    <div class="categories">
+      <section class="category" aria-labelledby="food-log-heading">
+        <h2 id="food-log-heading">Food Log</h2>
+        <ul class="tools">
+          <li><a href="https://www.loseit.com/" target="_blank" rel="noopener noreferrer">Lose It</a></li>
+          <li><a href="https://cronometer.com/" target="_blank" rel="noopener noreferrer">Cronometer</a></li>
+          <li><a href="https://www.myfitnesspal.com/" target="_blank" rel="noopener noreferrer">MyFitnessPal</a></li>
+        </ul>
+      </section>
+
+      <section class="category" aria-labelledby="scale-heading">
+        <h2 id="scale-heading">Scale</h2>
+        <ul class="tools">
+          <li><a href="https://amzn.to/4yyXDb7" target="_blank" rel="noopener noreferrer">Renpho Smart Scale</a></li>
+        </ul>
+      </section>
+    </div>
 
     <p class="disclosure">MicroFitness is a participant in the Amazon Services LLC Associates Program and may earn from qualifying purchases.</p>
 
