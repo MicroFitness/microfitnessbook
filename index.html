@@ -6,96 +6,93 @@
   <title>MicroFitness: Small Daily Moves That Add Up</title>
   <meta name="description" content="MicroFitness: small daily moves that add up. Education, not medical advice." />
   <link rel="canonical" href="https://microfitnessbook.com/" />
-  <style>
-    :root {
-      --navy: #0b1f3a;
-      --navy-mid: #16355c;
-      --cream: #f4f1ea;
-      --ink: #1a1a1a;
-      --muted: #5a6570;
-      --accent: #c9a227;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: var(--cream);
-      color: var(--ink);
-      line-height: 1.5;
-      min-height: 100vh;
-    }
-    .wrap {
-      max-width: 28rem;
-      margin: 0 auto;
-      padding: 2.5rem 1.25rem 3rem;
-    }
-    header {
-      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%);
-      color: #fff;
-      border-radius: 1rem;
-      padding: 2rem 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 8px 24px rgba(11, 31, 58, 0.25);
-    }
-    .brand {
-      font-size: 1.75rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .subtitle {
-      margin-top: 0.35rem;
-      font-size: 1rem;
-      opacity: 0.9;
-      font-weight: 500;
-    }
-    .promise {
-      margin: 1.25rem 0 0;
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-    .note {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      color: var(--muted);
-      text-align: center;
-    }
-    .social {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      font-size: 0.9rem;
-    }
-    .social a { color: var(--navy); font-weight: 600; }
-    footer {
-      margin-top: 2.5rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-align: center;
-    }
-  </style>
+  <meta name="theme-color" content="#0b1f3a" />
+  <meta property="og:title" content="MicroFitness: Small Daily Moves That Add Up" />
+  <meta property="og:description" content="MicroFitness: small daily moves that add up. Education, not medical advice." />
+  <meta property="og:url" content="https://microfitnessbook.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <header>
-      <div class="brand">MicroFitness</div>
-      <p class="subtitle">Small Daily Moves That Add Up</p>
-    </header>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <p class="promise">Tiny habits. Real compounding. No gym heroics required.</p>
-
-    <p class="note">Education, not medical advice. A place to learn about small daily movement.</p>
-
-    <div class="social">
-      <a href="https://www.tiktok.com/@microfitnessbook" rel="noopener">TikTok</a>
-      <a href="https://www.youtube.com/@microfitnessbook" rel="noopener">YouTube</a>
-      <a href="/tools">Tools</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="/" aria-current="page">MicroFitness</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/tools">Tools</a>
+        <a href="https://www.tiktok.com/@microfitnessbook" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.youtube.com/@microfitnessbook" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </nav>
     </div>
+  </header>
 
-    <footer>
-      © <span id="y"></span> MicroFitness · microfitnessbook.com
-    </footer>
+  <main id="main">
+    <section class="hero" aria-labelledby="site-title">
+      <div class="shell hero-grid">
+        <div>
+          <p class="kicker">Education, not medical advice</p>
+          <h1 id="site-title">MicroFitness</h1>
+          <p class="deck">Small Daily Moves That Add Up</p>
+          <hr class="rule" />
+          <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
+        </div>
+        <div class="cover-wrap" aria-hidden="true">
+          <div class="cover-pages"></div>
+          <div class="cover">
+            <p class="cover-brand">MicroFitness</p>
+            <p class="cover-title">Small Daily Moves That Add Up</p>
+            <p class="cover-foot">Education</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="what-heading">
+      <div class="shell">
+        <div class="what-grid">
+          <h2 id="what-heading">What this is</h2>
+          <div class="what-copy">
+            <p>A place to learn about small daily movement.</p>
+            <p class="disclaimer">Education, not medical advice.</p>
+          </div>
+        </div>
+
+        <ul class="triad" aria-label="The idea">
+          <li>Tiny habits</li>
+          <li>Real compounding</li>
+          <li>No gym heroics required</li>
+        </ul>
+
+        <section class="readers" aria-labelledby="readers-heading">
+          <div>
+            <h2 id="readers-heading">For readers</h2>
+            <p>A tools hub for readers of the book. Optional helpers if you want a scale or a food log — nothing here is required.</p>
+          </div>
+          <a class="quiet-link" href="/tools">Tools</a>
+        </section>
+      </div>
+    </section>
   </main>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <hr class="footer-rule" />
+      <nav class="footer-nav" aria-label="Social">
+        <a href="https://www.tiktok.com/@microfitnessbook" target="_blank" rel="noopener noreferrer">TikTok <span class="handle">@microfitnessbook</span></a>
+        <a href="https://www.youtube.com/@microfitnessbook" target="_blank" rel="noopener noreferrer">YouTube <span class="handle">@microfitnessbook</span></a>
+      </nav>
+      <p class="legal">Education, not medical advice. A place to learn about small daily movement.</p>
+      <p class="colophon">© <span id="y">2026</span> MicroFitness · microfitnessbook.com</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("y").textContent = String(new Date().getFullYear());
+  </script>
 </body>
 </html>
