@@ -11,7 +11,12 @@
   <meta property="og:description" content="MicroFitness: small daily moves that add up. Education, not medical advice." />
   <meta property="og:url" content="https://microfitnessbook.com/" />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://microfitnessbook.com/assets/cover.jpg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="1280" />
+  <meta property="og:image:alt" content="MicroFitness book cover: Small Daily Moves That Add Up" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preload" as="image" href="/assets/cover.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Source+Sans+3:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet" />
@@ -41,14 +46,20 @@
           <hr class="rule" />
           <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
         </div>
-        <div class="cover-wrap" aria-hidden="true">
-          <div class="cover-pages"></div>
-          <div class="cover">
-            <p class="cover-brand">MicroFitness</p>
-            <p class="cover-title">Small Daily Moves That Add Up</p>
-            <p class="cover-foot">Education</p>
+        <figure class="cover-wrap">
+          <div class="cover-stage">
+            <div class="cover-pages" aria-hidden="true"></div>
+            <img
+              class="cover"
+              src="/assets/cover.jpg"
+              width="800"
+              height="1280"
+              alt="MicroFitness book cover: Small Daily Moves That Add Up"
+              decoding="async"
+              fetchpriority="high"
+            />
           </div>
-        </div>
+        </figure>
       </div>
     </section>
 
