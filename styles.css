@@ -586,3 +586,47 @@ a { color: inherit; }
   .cover-wrap { display: none; }
   body { background: #fff; }
 }
+
+.buy {
+  margin: 1.75rem 0 0;
+}
+
+.buy-btn {
+  display: inline-block;
+  padding: 0.8rem 1.35rem;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--navy-deep);
+  font-family: var(--ui);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.buy-btn:hover,
+.buy-btn:focus-visible {
+  background: transparent;
+  color: #f7f3ea;
+}
+
+.buy-btn:focus-visible {
+  outline: 2px solid #f7f3ea;
+  outline-offset: 3px;
+}
+
+.buy-note {
+  margin: 0.7rem 0 0;
+  font-family: var(--ui);
+  font-size: 0.85rem;
+  color: rgba(247, 243, 234, 0.7);
+}
+
+@media (max-width: 520px) {
+  .buy-btn {
+    display: block;
+    text-align: center;
+  }
+}
