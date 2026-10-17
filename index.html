@@ -46,7 +46,7 @@
           <hr class="rule" />
           <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
           <div class="buy">
-            <a class="buy-btn" href="https://www.amazon.com/dp/B0HN61S3MC">Get the Kindle ebook on Amazon</a>
+            <a class="buy-btn" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook on Amazon</a>
             <p class="buy-note">Paperback coming soon.</p>
           </div>
           <script>
@@ -60,7 +60,11 @@
                 if (known[saved]) src = saved;
               } catch (e) {}
               var links = document.querySelectorAll("a.buy-btn");
-              for (var i = 0; i < links.length; i++) links[i].href = "/buy/kindle/" + src + "/";
+              for (var i = 0; i < links.length; i++) {
+                links[i].href = "/buy/kindle/" + src + "/";
+                links[i].target = "_blank";
+                links[i].rel = "noopener";
+              }
             })();
           </script>
         </div>
