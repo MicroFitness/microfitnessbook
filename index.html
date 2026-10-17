@@ -46,9 +46,23 @@
           <hr class="rule" />
           <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
           <div class="buy">
-            <a class="buy-btn" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook on Amazon</a>
+            <a class="buy-btn" href="https://www.amazon.com/dp/B0HN61S3MC">Get the Kindle ebook on Amazon</a>
             <p class="buy-note">Paperback coming soon.</p>
           </div>
+          <script>
+            (function () {
+              var known = { tiktok: true, youtube: true };
+              var src = "direct";
+              try {
+                var utm = (new URLSearchParams(location.search).get("utm_source") || "").trim().toLowerCase();
+                if (known[utm]) sessionStorage.setItem("mf_src", utm);
+                var saved = sessionStorage.getItem("mf_src");
+                if (known[saved]) src = saved;
+              } catch (e) {}
+              var links = document.querySelectorAll("a.buy-btn");
+              for (var i = 0; i < links.length; i++) links[i].href = "/buy/kindle/" + src + "/";
+            })();
+          </script>
         </div>
         <figure class="cover-wrap">
           <div class="cover-stage">
