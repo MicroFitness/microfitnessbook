@@ -588,11 +588,16 @@ a { color: inherit; }
 }
 
 .buy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
   margin: 1.75rem 0 0;
 }
 
 .buy-btn {
   display: inline-block;
+  flex: 0 0 auto;
   padding: 0.8rem 1.35rem;
   border: 1px solid var(--accent);
   border-radius: 999px;
@@ -617,16 +622,32 @@ a { color: inherit; }
   outline-offset: 3px;
 }
 
-.buy-note {
-  margin: 0.7rem 0 0;
-  font-family: var(--ui);
-  font-size: 0.85rem;
-  color: rgba(247, 243, 234, 0.7);
+.buy-btn.secondary {
+  background: transparent;
+  color: #f7f3ea;
+}
+
+.buy-btn.secondary:hover,
+.buy-btn.secondary:focus-visible {
+  background: var(--accent);
+  color: var(--navy-deep);
 }
 
 @media (max-width: 520px) {
+  .buy {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
   .buy-btn {
     display: block;
     text-align: center;
+  }
+}
+
+@media print {
+  .buy-btn.secondary {
+    color: #000;
+    border-color: #000;
   }
 }

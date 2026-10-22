@@ -46,12 +46,13 @@
           <hr class="rule" />
           <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
           <div class="buy">
-            <a class="buy-btn" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook on Amazon</a>
-            <p class="buy-note">Paperback coming soon.</p>
+            <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook on Amazon</a>
+            <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback on Amazon</a>
           </div>
           <script>
             (function () {
               var known = { tiktok: true, youtube: true };
+              var formats = { kindle: true, paperback: true };
               var src = "direct";
               try {
                 var utm = (new URLSearchParams(location.search).get("utm_source") || "").trim().toLowerCase();
@@ -59,9 +60,11 @@
                 var saved = sessionStorage.getItem("mf_src");
                 if (known[saved]) src = saved;
               } catch (e) {}
-              var links = document.querySelectorAll("a.buy-btn");
+              var links = document.querySelectorAll("a.buy-btn[data-buy]");
               for (var i = 0; i < links.length; i++) {
-                links[i].href = "/buy/kindle/" + src + "/";
+                var format = links[i].getAttribute("data-buy");
+                if (!formats[format]) continue;
+                links[i].href = "/buy/" + format + "/" + src + "/";
                 links[i].target = "_blank";
                 links[i].rel = "noopener";
               }
