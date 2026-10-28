@@ -3,3 +3,4 @@ Allow: /
 Disallow: /buy/
 Disallow: /tiktok/
 Disallow: /youtube/
+Sitemap: https://microfitnessbook.com/sitemap.xml
