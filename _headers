@@ -1,0 +1,40 @@
+# HTML documents: always revalidate so a new stylesheet URL is picked up.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tools
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tools/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tools/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tiktok
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tiktok/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/tiktok/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/youtube
+  Cache-Control: public, max-age=0, must-revalidate
+
+/youtube/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/youtube/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/buy/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Stylesheet, including /styles.css?v=...
+/styles.css
+  Cache-Control: public, max-age=0, must-revalidate
