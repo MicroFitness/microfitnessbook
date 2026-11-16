@@ -39,16 +39,15 @@
   <main id="main">
     <section class="hero" aria-labelledby="site-title">
       <div class="shell hero-grid">
-        <div>
-          <p class="kicker">Education, not medical advice</p>
-          <h1 id="site-title">MicroFitness</h1>
-          <p class="deck">Small Daily Moves That Add Up</p>
-          <hr class="rule" />
-          <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
+        <div class="hero-copy">
+          <p class="hero-eyebrow">MicroFitness</p>
+          <h1 id="site-title">Down 50 lbs<br>with small habits.</h1>
+          <p class="hero-sub">Small Daily Moves That Add Up.</p>
           <div class="buy">
-            <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook on Amazon</a>
-            <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback on Amazon</a>
+            <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook</a>
+            <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback</a>
           </div>
+          <p class="hero-disclosure">As an author, I earn from book sales.</p>
           <script>
             (function () {
               var known = { tiktok: true, youtube: true };
@@ -71,22 +70,48 @@
             })();
           </script>
         </div>
-        <figure class="cover-wrap">
-          <div class="cover-stage">
-            <div class="cover-pages" aria-hidden="true"></div>
-            <img
-              class="cover"
-              src="/assets/cover.jpg"
-              width="800"
-              height="1280"
-              alt="MicroFitness book cover: Small Daily Moves That Add Up"
-              decoding="async"
-              fetchpriority="high"
-            />
+        <div class="hero-visual">
+          <div class="hero-stage">
+            <!-- Photo slot for Mike. One-line swap: set src="/assets/mike.jpg" and remove hidden. -->
+            <img class="hero-photo" alt="Mike Slane" width="900" height="1200" hidden>
+            <figure class="cover-wrap">
+              <img
+                class="cover"
+                src="/assets/cover.jpg"
+                width="800"
+                height="1280"
+                alt="MicroFitness book cover: Small Daily Moves That Add Up"
+                decoding="async"
+                fetchpriority="high"
+              />
+            </figure>
           </div>
-        </figure>
+        </div>
       </div>
     </section>
+    <script>
+      (function () {
+        var stage = document.querySelector(".hero-stage");
+        var copy = document.querySelector(".hero-copy");
+        if (!stage || !("IntersectionObserver" in window)) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var hero = stage.closest(".hero");
+        if (!hero) return;
+        var ticks = [];
+        for (var i = 0; i <= 32; i++) ticks.push(i / 32);
+        var observer = new IntersectionObserver(function (entries) {
+          var entry = entries[0];
+          if (!entry) return;
+          var rect = entry.boundingClientRect;
+          var progress = Math.min(1, Math.max(0, -rect.top / (rect.height || 1)));
+          var shift = (progress * 32).toFixed(2) + "px";
+          stage.style.setProperty("--hero-shift", shift);
+          stage.style.setProperty("--hero-fade", (1 - progress * 0.16).toFixed(3));
+          if (copy) copy.style.setProperty("--hero-shift", (progress * 14).toFixed(2) + "px");
+        }, { threshold: ticks });
+        observer.observe(hero);
+      })();
+    </script>
 
     <section class="band" aria-labelledby="what-heading">
       <div class="shell">
