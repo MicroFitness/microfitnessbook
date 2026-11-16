@@ -39,78 +39,181 @@
   <main id="main">
     <section class="hero" aria-labelledby="site-title">
       <div class="shell hero-grid">
-        <div>
-          <p class="kicker">Education, not medical advice</p>
-          <h1 id="site-title">MicroFitness</h1>
-          <p class="deck">Small Daily Moves That Add Up</p>
-          <hr class="rule" />
-          <p class="lede">Tiny habits. Real compounding. No gym heroics required.</p>
+        <div class="hero-copy">
+          <p class="hero-eyebrow">MicroFitness</p>
+          <h1 id="site-title">Down 50 lbs<br>with small habits.</h1>
+          <p class="hero-sub">Small Daily Moves That Add Up.</p>
           <div class="buy">
-            <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook on Amazon</a>
-            <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback on Amazon</a>
+            <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook</a>
+            <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback</a>
           </div>
-          <script>
-            (function () {
-              var known = { tiktok: true, youtube: true };
-              var formats = { kindle: true, paperback: true };
-              var src = "direct";
-              try {
-                var utm = (new URLSearchParams(location.search).get("utm_source") || "").trim().toLowerCase();
-                if (known[utm]) sessionStorage.setItem("mf_src", utm);
-                var saved = sessionStorage.getItem("mf_src");
-                if (known[saved]) src = saved;
-              } catch (e) {}
-              var links = document.querySelectorAll("a.buy-btn[data-buy]");
-              for (var i = 0; i < links.length; i++) {
-                var format = links[i].getAttribute("data-buy");
-                if (!formats[format]) continue;
-                links[i].href = "/buy/" + format + "/" + src + "/";
-                links[i].target = "_blank";
-                links[i].rel = "noopener";
-              }
-            })();
-          </script>
+          <p class="hero-disclosure">As an author, I earn from book sales.</p>
         </div>
-        <figure class="cover-wrap">
-          <div class="cover-stage">
-            <div class="cover-pages" aria-hidden="true"></div>
-            <img
-              class="cover"
-              src="/assets/cover.jpg"
-              width="800"
-              height="1280"
-              alt="MicroFitness book cover: Small Daily Moves That Add Up"
-              decoding="async"
-              fetchpriority="high"
-            />
+        <div class="hero-visual">
+          <div class="hero-stage">
+            <figure class="cover-wrap">
+              <a class="cover-link buy-btn" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener" aria-label="Get the paperback on Amazon">
+                <img
+                  class="cover"
+                  src="/assets/cover.jpg"
+                  width="800"
+                  height="1280"
+                  alt="MicroFitness book cover: Small Daily Moves That Add Up"
+                  decoding="async"
+                  fetchpriority="high"
+                />
+              </a>
+            </figure>
           </div>
-        </figure>
+        </div>
+      </div>
+    </section>
+    <script>
+      (function () {
+        var stage = document.querySelector(".hero-stage");
+        var copy = document.querySelector(".hero-copy");
+        if (!stage || !("IntersectionObserver" in window)) return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        var hero = stage.closest(".hero");
+        if (!hero) return;
+        var ticks = [];
+        for (var i = 0; i <= 32; i++) ticks.push(i / 32);
+        var observer = new IntersectionObserver(function (entries) {
+          var entry = entries[0];
+          if (!entry) return;
+          var rect = entry.boundingClientRect;
+          var progress = Math.min(1, Math.max(0, -rect.top / (rect.height || 1)));
+          var shift = (progress * 32).toFixed(2) + "px";
+          stage.style.setProperty("--hero-shift", shift);
+          stage.style.setProperty("--hero-fade", (1 - progress * 0.16).toFixed(3));
+          if (copy) copy.style.setProperty("--hero-shift", (progress * 14).toFixed(2) + "px");
+        }, { threshold: ticks });
+        observer.observe(hero);
+      })();
+    </script>
+
+    <section class="chapter start reveal" aria-labelledby="start-heading">
+      <div class="shell">
+        <h2 id="start-heading">Start here</h2>
+        <div class="start-grid">
+          <article class="tile">
+            <h3>Read the book</h3>
+            <p>The Kindle ebook and the paperback.</p>
+            <div class="buy">
+              <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook</a>
+              <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback</a>
+            </div>
+          </article>
+          <article class="tile">
+            <h3>Watch the Shorts</h3>
+            <p>Short videos on YouTube and TikTok.</p>
+            <div class="actions">
+              <a class="follow-btn" href="/youtube/">YouTube</a>
+              <a class="follow-btn" href="/tiktok/">TikTok</a>
+            </div>
+          </article>
+          <article class="tile">
+            <h3>Grab the tools</h3>
+            <p>Optional helpers for readers. Nothing here is required.</p>
+            <div class="actions">
+              <a class="follow-btn" href="/tools/">Tools</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="band" aria-labelledby="what-heading">
+    <section class="chapter story on-dark center reveal" aria-labelledby="story-heading">
       <div class="shell">
-        <div class="what-grid">
-          <h2 id="what-heading">What this is</h2>
-          <div class="what-copy">
-            <p>A place to learn about small daily movement.</p>
-            <p class="disclaimer">Education, not medical advice.</p>
+        <h2 id="story-heading">I lost 50 lbs with small habits, not a gym plan.</h2>
+        <p class="chapter-copy">I'm a St. Louis dad of 2. Days are busy. I did it with small daily moves that add up.</p>
+        <div class="pair">
+          <figure>
+            <img class="before" src="/assets/mike-before.jpg" width="931" height="1000" alt="Mike before losing 50 lbs" loading="lazy" decoding="async">
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure>
+            <img class="after" src="/assets/mike-after.jpg" width="769" height="1000" alt="Mike after losing 50 lbs" loading="lazy" decoding="async">
+            <figcaption>After</figcaption>
+          </figure>
+        </div>
+        <p class="pair-note">Big Fitness loves posed before and after photos. I don't have any. Here's what I actually looked like before and after.</p>
+      </div>
+    </section>
+
+    <section class="chapter how reveal" aria-labelledby="how-heading">
+      <div class="shell">
+        <h2 id="how-heading">How it works</h2>
+        <ol class="steps">
+          <li>
+            <h3>Pick one small move.</h3>
+            <p>Start with one thing you can repeat, like a short walk or the stairs.</p>
+          </li>
+          <li>
+            <h3>Do it every day.</h3>
+            <p>Repeat that same small move. Keep it easy enough to keep doing.</p>
+          </li>
+          <li>
+            <h3>Let it add up.</h3>
+            <p>One day is small. Many days add up.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="chapter watch on-dark center reveal" aria-labelledby="watch-heading">
+      <div class="shell">
+        <h2 id="watch-heading">See the moves</h2>
+        <p class="chapter-copy">Short videos of the daily moves.</p>
+        <div class="actions">
+          <a class="follow-btn" href="https://www.tiktok.com/@microfitnessbook?utm_source=site" target="_blank" rel="noopener">TikTok</a>
+          <a class="follow-btn" href="https://www.youtube.com/@microfitnessbook?utm_source=site" target="_blank" rel="noopener">YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter soon center reveal" aria-labelledby="soon-heading">
+      <div class="shell">
+        <h2 id="soon-heading">60 Second Moves</h2>
+        <p class="chapter-copy">Coming soon: 60 Second Moves. A free starter pack is on the way.</p>
+      </div>
+    </section>
+
+    <section class="chapter faq reveal" aria-labelledby="faq-heading">
+      <div class="shell">
+        <h2 id="faq-heading">FAQ</h2>
+        <div class="faq-list">
+          <div class="faq-item">
+            <h3>Do I need a gym?</h3>
+            <p>No.</p>
+          </div>
+          <div class="faq-item">
+            <h3>How much time does it take?</h3>
+            <p>A few minutes a day. Small moves count.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Is this medical advice?</h3>
+            <p>No. This is education only. Talk to your doctor before starting.</p>
+          </div>
+          <div class="faq-item">
+            <h3>Where do I get the book?</h3>
+            <p>On Amazon. Kindle and paperback.</p>
+            <div class="buy">
+              <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook</a>
+              <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback</a>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <ul class="triad" aria-label="The idea">
-          <li>Tiny habits</li>
-          <li>Real compounding</li>
-          <li>No gym heroics required</li>
-        </ul>
-
-        <section class="readers" aria-labelledby="readers-heading">
-          <div>
-            <h2 id="readers-heading">For readers</h2>
-            <p>A tools hub for readers of the book. Optional helpers if you want a scale or a food log — nothing here is required.</p>
-          </div>
-          <a class="quiet-link" href="/tools">Tools</a>
-        </section>
+    <section class="chapter close on-dark center reveal" aria-labelledby="close-heading">
+      <div class="shell">
+        <h2 id="close-heading">That's MicroFitness.</h2>
+        <div class="buy">
+          <a class="buy-btn" data-buy="kindle" href="https://www.amazon.com/dp/B0HN61S3MC" target="_blank" rel="noopener">Get the Kindle ebook</a>
+          <a class="buy-btn secondary" data-buy="paperback" href="https://www.amazon.com/dp/B0HNRCV22M" target="_blank" rel="noopener">Get the paperback</a>
+        </div>
       </div>
     </section>
   </main>
@@ -122,11 +225,49 @@
         <a href="https://www.tiktok.com/@microfitnessbook" target="_blank" rel="noopener noreferrer">TikTok <span class="handle">@microfitnessbook</span></a>
         <a href="https://www.youtube.com/@microfitnessbook" target="_blank" rel="noopener noreferrer">YouTube <span class="handle">@microfitnessbook</span></a>
       </nav>
-      <p class="legal">Education, not medical advice. A place to learn about small daily movement.</p>
+      <p class="legal">Education, not medical advice. Check with your doctor before starting any exercise or diet change.</p>
+      <p class="legal">As an author, I earn from book sales.</p>
       <p class="colophon">© <span id="y">2026</span> MicroFitness · microfitnessbook.com</p>
     </div>
   </footer>
 
+  <script>
+    (function () {
+      var known = { tiktok: true, youtube: true };
+      var formats = { kindle: true, paperback: true };
+      var src = "direct";
+      try {
+        var utm = (new URLSearchParams(location.search).get("utm_source") || "").trim().toLowerCase();
+        if (known[utm]) sessionStorage.setItem("mf_src", utm);
+        var saved = sessionStorage.getItem("mf_src");
+        if (known[saved]) src = saved;
+      } catch (e) {}
+      var links = document.querySelectorAll("a.buy-btn[data-buy]");
+      for (var i = 0; i < links.length; i++) {
+        var format = links[i].getAttribute("data-buy");
+        if (!formats[format]) continue;
+        links[i].href = "/buy/" + format + "/" + src + "/";
+        links[i].target = "_blank";
+        links[i].rel = "noopener";
+      }
+    })();
+  </script>
+  <script>
+    (function () {
+      var nodes = document.querySelectorAll(".reveal");
+      if (!nodes.length || !("IntersectionObserver" in window)) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      for (var i = 0; i < nodes.length; i++) nodes[i].classList.add("reveal-pending");
+      var io = new IntersectionObserver(function (entries) {
+        for (var j = 0; j < entries.length; j++) {
+          if (!entries[j].isIntersecting) continue;
+          entries[j].target.classList.add("is-in");
+          io.unobserve(entries[j].target);
+        }
+      }, { threshold: 0.08 });
+      for (var k = 0; k < nodes.length; k++) io.observe(nodes[k]);
+    })();
+  </script>
   <script>
     document.getElementById("y").textContent = String(new Date().getFullYear());
   </script>
